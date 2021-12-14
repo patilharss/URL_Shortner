@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shorten Link</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+<h2 class="subtitle is-4">Original Link:</h2>
+ <p>{{original_url}}</p>
+      <br>
+<h2 class="subtitle is-4">Shorten Link : </h2>
+<p id="copy">{{url_for('short.redirect_to_url',short_url=newlink,_external=True)}}</p>
+      <br>
+      <button class="button is-link is-light" type="button" onclick="copyEvent('copy')"> Copy! </button>
+  </section>
+  </body>
+</html>
+
+
+<script>
+    function copyEvent(id)
+    {
+        var str = document.getElementById(id);
+        window.getSelection().selectAllChildren(str);
+        document.execCommand("Copy")
+    }
+</script>
